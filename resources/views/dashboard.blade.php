@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
+@livewireStyles
 </head>
 <body>
 	<x-app-layout>
@@ -44,7 +45,7 @@
 			<nav class="main_nav_container">
 				<div class="main_nav">
 					<ul class="main_nav_list">
-						<li class="main_nav_item"><a href="#">Realizar Pedido</a></li>
+						<li class="main_nav_item"><a href="{{url('DatosDueño')}}">Registrar Datos del Dueño</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -684,7 +685,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{asset('plugins/scrollTo/jquery.scrollTo.min.js')}}"></script>
 <script src="{{asset('plugins/easing/easing.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
-
+@livewireScripts
 </body>
 </html>
     

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Menu;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,4 @@ Route::middleware([
 });
 
 Route:: get('Registro',[Controller:: class, 'Register']);
+Route:: get('DatosDueño',[Menu:: class, 'ShowDataOfOwner']);
