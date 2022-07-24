@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class Menu extends Controller
 {
+    public function Principal(){
+        return view('dashboard');
+    }
     public function ShowDataOfOwner(){
         return view('Paginas.DatosDueño');
     }
