@@ -44,10 +44,9 @@
                 <!-- Main Navigation -->
                 <nav class="main_nav_container">
                     <div class="main_nav">
-                            <ul class="main_nav_list">
-                                <li class="main_nav_item"><a target="_blank" href="{{url('DatosDueño')}}">Usuario</a></li>
-                                <li class="main_nav_item"><a href="#">Local</a></li>
-                            </ul>
+						<li class="main_nav_item"><a target="_blank" href="{{url('DatosDueño')}}">Usuario</a></li>
+						<li class="main_nav_item"><a href="{{url('DatosLocal')}}">Local</a></li>
+						<li class="main_nav_item"><a href="{{url('Pedido')}}">Pedido</a></li>
                     </div>
                 </nav>
             </div>
@@ -62,7 +61,9 @@
             </div>
     
         </header>
-    @livewire('datos-dueño')
+	<main>
+		@livewire('datos-dueño')
+	</main>
     <br> <br>
     <footer class="footer">
 		<div class="container">

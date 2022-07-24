@@ -13,4 +13,12 @@ class Menu extends Controller
     public function ShowDataOfLocal(){
         return view('Paginas.DatosLocal');
     }
+
+    public function ShowDataOfOrder(){
+        return view('Paginas.Pedido');
+    }
+
+    public function ShowDataOfMenu(){
+        return view('Paginas.Menu');
+    }
 }

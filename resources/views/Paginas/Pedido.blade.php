@@ -63,7 +63,9 @@
                 </div>
         
             </header>
-        @livewire('datos-local')
+        <main>
+            @livewire('pedido')
+        </main>
         <br> <br>
         <footer class="footer">
             <div class="container">
@@ -120,7 +122,9 @@
                             <div class="footer_column_title">Menu</div>
                             <div class="footer_column_content">
                                 <ul>
-                                    <li class="footer_list_item"><a href="#">Realizar Pedido</a></li>
+                                    <li class="main_nav_item"><a target="_blank" href="{{url('DatosDueño')}}">Usuario</a></li>
+                                    <li class="main_nav_item"><a href="{{url('DatosLocal')}}">Local</a></li>
+                                    <li class="main_nav_item"><a href="{{url('Pedido')}}">Pedido</a></li>
                                 </ul>
                             </div>
                         </div>
