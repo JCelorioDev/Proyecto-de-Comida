@@ -13,7 +13,8 @@ class DatosDueño extends Component
     public function render()
     {
         $t = TipoPersona::all();
-        return view('livewire.datos-dueño',compact('t'));
+        $p = Persona::where('id_tipopersona',1)->get();
+        return view('livewire.datos-dueño',compact('t','p'));
     }
 
     public function Save(){
