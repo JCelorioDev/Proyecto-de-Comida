@@ -1,6 +1,4 @@
-
-
-
+<x-app-layout>
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +14,11 @@
 <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 @livewireStyles
 </head>
 <body>
-	<x-app-layout>
 		<x-slot name="header">
 			<h2 class="font-semibold text-xl text-gray-800 leading-tight">
 				{{ __('CEO: José Arroyo Paredes.') }}
@@ -44,9 +43,11 @@
 			<!-- Main Navigation -->
 			<nav class="main_nav_container">
 				<div class="main_nav">
-					<ul class="main_nav_list">
-						<li class="main_nav_item"><a href="{{url('DatosDueño')}}">Registrar Datos del Dueño</a></li>
-					</ul>
+
+						<ul class="main_nav_list">
+							<li class="main_nav_item"><a target="_blank" href="{{url('DatosDueño')}}">Usuario</a></li>
+							<li class="main_nav_item"><a href="{{url('DatosLocal')}}">Local</a></li>
+						</ul>
 				</div>
 			</nav>
 		</div>
@@ -640,7 +641,7 @@
 								<li class="footer_contact_item">
 									<div class="footer_contact_icon">
 										<img src="{{asset('images/envelope.svg')}}" alt="https://www.flaticon.com/authors/lucy-g">
-									</div>manaba12@outlook.hotmail.com
+									</div>mr1@outlook.hotmail.com
 								</li>
 							</ul>
 						</div>
@@ -685,6 +686,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{{asset('plugins/scrollTo/jquery.scrollTo.min.js')}}"></script>
 <script src="{{asset('plugins/easing/easing.js')}}"></script>
 <script src="{{asset('js/custom.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
 @livewireScripts
 </body>
 </html>

@@ -30,3 +30,4 @@ Route::middleware([
 
 Route:: get('Registro',[Controller:: class, 'Register']);
 Route:: get('DatosDueño',[Menu:: class, 'ShowDataOfOwner']);
+Route:: get('DatosLocal',[Menu:: class, 'ShowDataOfLocal']);
