@@ -1,4 +1,3 @@
-<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 <div style="position: relative; left: 80px;">
     <div style="position: relative; left: 30px;">
         <div class="hidden sm:block" aria-hidden="true">
@@ -58,7 +57,7 @@
                     <div class="grid grid-cols-6 gap-6">
                       <div class="col-span-6 sm:col-span-6">
                         <label for="nombre_" class="block text-sm font-medium text-gray-700">Sucursal</label>
-                        <input type="text" name="nombre_" wire:model="_NombreLocal" id="nombre_" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        <input type="text" name="nombre_" wire:model="_NombreSucursal" id="nombre_" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                       </div>
         
                       <label>Matriz</label>

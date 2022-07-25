@@ -10,7 +10,7 @@ use App\Models\Sucursal;
 use Illuminate\Support\Facades\DB;
 class DatosLocal extends Component
 {
-    public $_id_persona,$_NombreLocal,$_Telefono,$_Apertura,$_id_sucursal;
+    public $_id_persona,$_NombreLocal,$_NombreSucursal,$_Telefono,$_Apertura,$_id_sucursal;
 
     public function render()
     {
@@ -42,7 +42,7 @@ class DatosLocal extends Component
 
     public function Save2(){
             Sucursal ::create([
-                'Nombre' => $this->_NombreLocal,
+                'Nombre' => $this->_NombreSucursal,
                 'id_local' => $this->_id_sucursal,
             ]);
             $this->reset();

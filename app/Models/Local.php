@@ -9,5 +9,5 @@ class Local extends Model
 {
     protected $table= 'local';
     public $timestamps =false;
-    public $fillable = ['Nombre','Telefono','AñoCreacion','Apertura','id_persona'];
+    public $fillable = ['Nombre','Telefono','AñoCreacion','id_persona'];
 }
