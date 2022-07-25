@@ -30,7 +30,26 @@ class Pedido extends Component
         return view('livewire.pedido',compact('p','m','ec','v'));
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    protected $rules = [
+        'Fecha_' => 'required',
+        'Descripcion_' => 'required|min:5',
+        'Total_' => 'required',
+    ];
+
+    protected $messages = [
+        'Fecha_.required' => 'El Campo es Requerido',
+        'Descripcion_.required' => 'El Campo es Requerido',
+        'Descripcion_.min' => 'El Campo es de 5 Caracteres Minimo',
+        'Total_.required' => 'El Campo es Requerido',
+    ];
+
     public function Save(){
+        $this->validate();
         Venta ::create([
             'Fecha' => $this->Fecha_,
             'Descripcion' => $this->Descripcion_,
@@ -41,6 +60,7 @@ class Pedido extends Component
             'id_estadocuenta' => $this->_id_estadocuenta,
         ]);
         $this->reset();
+        session()->flash('message', 'Guardado Correctamente.');
     }
 
     public function Edit($id){
@@ -56,6 +76,7 @@ class Pedido extends Component
     }
 
     public function Update(){
+        $this->validate();
         $venta =Venta::find( $this->_id);
         $venta->update([
             'Fecha' => $this->Fecha_,
@@ -67,6 +88,7 @@ class Pedido extends Component
             'id_estadocuenta' => $this->_id_estadocuenta,
         ]);
         $this->reset();
+        session()->flash('message', 'Actualizado Correctamente.');
     }
 
     public function DestroyP($id){
