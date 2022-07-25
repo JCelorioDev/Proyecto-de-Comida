@@ -10,7 +10,8 @@ use App\Models\Venta;
 
 class Pedido extends Component
 {
-    public $Fecha_,$Descripcion_,$Total_,$_id_persona,$_id_menu,$_id_estadocuenta;
+    public $_id,$venta;
+    public $Fecha_,$Descripcion_,$Total_,$_id_persona,$_id_menu,$_id_estadocuenta,$InsertOrUpdate=true;
 
     public function render()
     {
@@ -18,7 +19,8 @@ class Pedido extends Component
         $m = MenuModel::all();
         $d = Persona::where('id_tipopersona',1)->get();
         $ec = EstadoVenta::all();
-        return view('livewire.pedido',compact('p','m','ec'));
+        $v = Venta::where('Estado',1);
+        return view('livewire.pedido',compact('p','m','ec','v'));
     }
 
     public function Save(){
@@ -26,9 +28,45 @@ class Pedido extends Component
             'Fecha' => $this->Fecha_,
             'Descripcion' => $this->Descripcion_,
             'Total' => $this->Total_,
+            'Estado' => 1,
             'id_persona' => $this->_id_persona,
             'id_menu' => $this->_id_menu,
             'id_estadocuenta' => $this->_id_estadocuenta,
+        ]);
+        $this->reset();
+    }
+
+    public function Edit($id){
+        $v= Venta::find($id);
+        $this->_id = $id;
+        $this->Fecha_=$v->Fecha;
+        $this->Descripcion_=$v->Descripcion;
+        $this->Total_=$v->Total;
+        $this->_id_persona=$v->id_persona;
+        $this->_id_menu=$v->id_menu;
+        $this->_id_estadocuenta=$v->id_estadocuenta;
+        $this->InsertOrUpdate = false;
+    }
+
+    public function Update(){
+        $venta =Venta::find( $this->_id);
+        $venta->update([
+            'Fecha' => $this->Fecha_,
+            'Descripcion' => $this->Descripcion_,
+            'Total' => $this->Total_,
+            'Estado' => 1,
+            'id_persona' => $this->_id_persona,
+            'id_menu' => $this->_id_menu,
+            'id_estadocuenta' => $this->_id_estadocuenta,
+        ]);
+        $this->reset();
+    }
+
+    public function DestroyP($id){
+        
+        $venta = Venta::find($id);
+        $venta->update([
+            'Estado' => 0
         ]);
         $this->reset();
     }

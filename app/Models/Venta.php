@@ -9,5 +9,5 @@ class Venta extends Model
 {
     protected $table= 'venta';
     public $timestamps =false;
-    public $fillable = ['Fecha','Descripcion','Total','id_persona','id_menu','id_estadocuenta'];
+    public $fillable = ['Fecha','Descripcion','Total','Estado','id_persona','id_menu','id_estadocuenta'];
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('Fecha');
             $table->text('Descripcion');
             $table->decimal('Total');
+            $table->boolean('Estado');
         });
     }
 
