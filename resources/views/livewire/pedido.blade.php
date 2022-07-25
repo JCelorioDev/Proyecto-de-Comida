@@ -129,16 +129,16 @@
           </div>
         </div>
 
-        <table class="table-secondary table-hover" style="width: 1000px; position: relative; left: 60px;">
+        <table class="table-secondary table-hover" style="width: 1400px; position: relative; left: -108px;">
           <thead>
-            <tr style="color: blue">
+            <tr style="color: blue;">
               <th scope="col"># Pedido</th>
               <th>Fecha</th>
-              <th>Descripción</th>
+              <th style="width: 100px">Descripción</th>
               <th>Total</th>
-              <th>ID Persona</th>
-              <th>ID Menu</th>
-              <th>Estado Cuenta</th>
+              <th>Cliente</th>
+              <th>Menu</th>
+              <th>Estado</th>
               <th>Acciones</th>
             </tr>
           </thead>
@@ -149,9 +149,9 @@
             <td>{{$item->Fecha}}</td>
             <td>{{$item->Descripcion}}</td>
             <td>{{$item->Total}}</td>
-            <td>{{$item->id_persona}}</td>
-            <td>{{$item->id_menu}}</td>
-            <td>{{$item->id_estadocuenta}}</td>
+            <td>{{$item->Cedula}}</td>
+            <td>{{$item->Titulo}}</td>
+            <td>{{$item->estado}}</td>
             <td class="table-action">  
               <a><i class="align-middle fas fa-edit" wire:click="Edit({{ $item->id }})" style="cursor: pointer"></i></a>
               <a><i class="align-middle fas fa-fw fa-trash" wire:click="DestroyP({{ $item->id }})" style="cursor: pointer"></i></a>

@@ -7,6 +7,7 @@ use App\Models\Persona;
 use App\Models\MenuModel;
 use App\Models\EstadoVenta;
 use App\Models\Venta;
+use Illuminate\Support\Facades\DB;
 
 class Pedido extends Component
 {
@@ -19,7 +20,13 @@ class Pedido extends Component
         $m = MenuModel::all();
         $d = Persona::where('id_tipopersona',1)->get();
         $ec = EstadoVenta::all();
-        $v = Venta::where('Estado',1);
+        $v = DB::table('venta')
+        ->join('persona','venta.id_persona','=','persona.id')
+        ->join('menu','venta.id_menu','=','menu.id')
+        ->join('estadocuenta','venta.id_estadocuenta','=','estadocuenta.id')
+        ->select('persona.Cedula','venta.Fecha','venta.Descripcion','venta.Total','venta.id','menu.Titulo','estadocuenta.estado')
+        ->get();
+        //$v = Venta::where('Estado',1)->get();
         return view('livewire.pedido',compact('p','m','ec','v'));
     }
 
