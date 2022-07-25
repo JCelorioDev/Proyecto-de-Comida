@@ -46,11 +46,12 @@
                     </div>
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Registrar</button>
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Registrar Local</button>
                   </div>
                 </div>
               <br> <br>
               </form>
+              <h1 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Si Tu Local Tiene Sucursal Agregala (Opcional)</h1>
               <form  wire:submit.prevent="Save2">
                 <div class="shadow overflow-hidden sm:rounded-md">
                   <div class="px-4 py-5 bg-white sm:p-6">
@@ -81,7 +82,7 @@
 
       <br>
       <div>
-        <h1 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Lista de Dueños</h1>
+        <h2 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Lista de Dueños</h2>
         <table class="table-secondary table-hover" style="width: 600px; position: relative; left: 350px;">
           <thead>
             <tr style="color: blue">
@@ -107,7 +108,7 @@
       </div>
       <br>
       <div>
-        <h1 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Lista de Datos del Local</h1>
+        <h2 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Lista de Datos del Local</h2>
         <table class="table-danger table-hover" style="width: 600px; position: relative; left: 350px;">
           <thead>
             <tr style="color: rgb(255, 115, 0)">
@@ -129,7 +130,7 @@
       </div>
       <br>
       <div>
-        <h1 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Sucursales</h1>
+        <h2 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Sucursales</h2>
         <table class="table-warning table-hover" style="width: 600px; position: relative; left: 350px;">
           <thead>
             <tr style="color: rgb(98, 0, 255)">
