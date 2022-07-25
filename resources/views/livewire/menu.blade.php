@@ -10,8 +10,8 @@
           <div class="md:grid md:grid-cols-3 md:gap-6">
             <div class="md:col-span-1">
               <div class="px-2 sm:px-10">
-                <h3 class="text-lg font-medium leading-6 text-gray-900">Registro de Local</h3>
-                <p class="mt-1 text-sm text-gray-600">Formulario para Registrar Local.</p>
+                <h3 class="text-lg font-medium leading-6 text-gray-900">Registro de Menu</h3>
+                <p class="mt-1 text-sm text-gray-600">Formulario para Registrar Menú.</p>
               </div>
             </div>
             <br>

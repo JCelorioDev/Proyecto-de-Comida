@@ -45,7 +45,7 @@
                     <nav class="main_nav_container">
                         <div class="main_nav">
                                 <ul class="main_nav_list">
-                                    <li class="main_nav_item"><a target="_blank" href="{{url('Inicio')}}">Inicio</a></li>
+                                    <li class="main_nav_item"><a href="{{url('Inicio')}}">Inicio</a></li>
                                     <li class="main_nav_item"><a target="_blank" href="{{url('DatosDueño')}}">Usuario</a></li>
                                     <li class="main_nav_item"><a href="{{url('DatosLocal')}}">Local</a></li>
                                     <li class="main_nav_item"><a href="{{url('Menu')}}">Menu</a></li>

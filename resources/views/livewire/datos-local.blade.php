@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 <div style="position: relative; left: 80px;">
     <div style="position: relative; left: 30px;">
         <div class="hidden sm:block" aria-hidden="true">
@@ -80,31 +81,70 @@
 
       <br>
       <div>
-        <h1 style="color: red">Lista de Dueños</h1>
+        <h1 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Lista de Dueños</h1>
+        <table class="table-secondary table-hover" style="width: 600px; position: relative; left: 350px;">
+          <thead>
+            <tr style="color: blue">
+              <th scope="col">Cedula</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Télefono</th>
+              <th scope="col">Dirección</th>
+            </tr>
+          </thead>
+          <tbody>
         @foreach ($d as $item)
-            <br>
-            <h4>Cedula: {{$item->Cedula}}</h4>
-            <h4>Nombre: {{$item->Nombre}}</h4>
-            <h4>Apellido: {{$item->Apellido}}</h4>
-            <h4>Télefono: {{$item->Telefono}}</h4>
-            <h4>Dirección: {{$item->Direccion}}</h4>
+          <tr>
+            <th scope="row">{{$item->Cedula}}</th>
+            <td>{{$item->Nombre}}</td>
+            <td>{{$item->Apellido}}</td>
+            <td>{{$item->Telefono}}</td>
+            <td>{{$item->Direccion}}</td>
+          </tr>
         @endforeach
+          </tbody>
+        </table>
       </div>
       <br>
       <div>
-        <h1 style="color: red">Lista de Datos del Local</h1>
+        <h1 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Lista de Datos del Local</h1>
+        <table class="table-danger table-hover" style="width: 600px; position: relative; left: 350px;">
+          <thead>
+            <tr style="color: rgb(255, 115, 0)">
+              <th scope="col">Nombre</th>
+              <th scope="col">Télefono</th>
+              <th scope="col">Año de Creación</th>
+            </tr>
+          </thead>
+          <tbody>
         @foreach ($l as $item)
-            <h4>Nombre del Local: {{$item->Nombre}}</h4>
-            <h4>Telefono: {{$item->Telefono}}</h4>
-            <h4>Año de Creación: {{$item->AñoCreacion}}</h4>
-            <h4>Pertenece A: {{$item->Cedula}}</h4>
-            <br>
+            <tr>
+              <th scope="row">{{$item->Nombre}}</th>
+              <td>{{$item->Telefono}}</td>
+              <td>{{$item->AñoCreacion}}</td>
+            </tr>
         @endforeach
+         </tbody>
+      </table>
       </div>
       <br>
-      Sucursales
-      <br>
-      @foreach ($su as $item)
-          <span>{{$item->Nombre}}</span>
-      @endforeach
+      <div>
+        <h1 style="color: red; font-family: 'Staatliches', cursive; text-align: center">Sucursales</h1>
+        <table class="table-warning table-hover" style="width: 600px; position: relative; left: 350px;">
+          <thead>
+            <tr style="color: rgb(98, 0, 255)">
+              <th scope="col">Extensiones</th>
+              <th scope="col">ID Local</th>
+            </tr>
+          </thead>
+          <tbody>
+        @foreach ($su as $item)
+            <tr>
+              <th scope="row">{{$item->Nombre}}</th>
+              <td>{{$item->id_local}}</td>
+           </tr>
+        @endforeach
+          </tbody>
+        </table>
+      </div>
 </div>
