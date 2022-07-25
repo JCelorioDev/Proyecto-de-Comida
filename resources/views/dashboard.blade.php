@@ -16,12 +16,13 @@
 <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 @livewireStyles
 </head>
 <body>
 		<x-slot name="header">
 			<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-				{{ __('CEO: José Arroyo Paredes.') }}
+				{{ __('CEO: Jahir Celorio Malavé.') }}
 			</h2>
 		</x-slot>
 <div class="super_container">
@@ -37,9 +38,10 @@
 				
 				<div class="logo">
 					<img src="#" alt="">
-					<span>Rincón del Manaba</span>
+					<span>Sistema de Ventas</span>
 				</div>
 			</div>
+			<span style="font-family: 'Staatliches', cursive; position: relative; top: 30px;left: -200px; font-size: 20px; color: rgb(255, 145, 0)">Restaurante</span>
 			<!-- Main Navigation -->
 			<nav class="main_nav_container">
 				<div class="main_nav">

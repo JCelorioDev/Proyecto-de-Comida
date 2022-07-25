@@ -1,3 +1,5 @@
+
+</style>
 <div style="position: relative; left: 80px;">
     <div style="position: relative; left: 30px;">
         <div class="hidden sm:block" aria-hidden="true">
@@ -129,17 +131,17 @@
           </div>
         </div>
 
-        <table class="table-secondary table-hover" style="width: 1400px; position: relative; left: -108px;">
+        <table class="table-secondary table-hover" style="width: 1000px; position: relative; left: 50px;">
           <thead>
             <tr style="color: blue;">
-              <th scope="col"># Pedido</th>
-              <th>Fecha</th>
-              <th style="width: 100px">Descripción</th>
-              <th>Total</th>
-              <th>Cliente</th>
-              <th>Menu</th>
-              <th>Estado</th>
-              <th>Acciones</th>
+              <th scope="col" style="width: 90px"># Pedido</th>
+              <th style="width: 140px">Fecha</th>
+              <th style="width: 300px">Descripción</th>
+              <th style="width: 90px">Total</th>
+              <th style="width: 300px">Cliente</th>
+              <th style="width: 300px">Menu</th>
+              <th style="width: 90px">Estado</th>
+              <th style="width: 90px">Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -149,12 +151,15 @@
             <td>{{$item->Fecha}}</td>
             <td>{{$item->Descripcion}}</td>
             <td>{{$item->Total}}</td>
-            <td>{{$item->Cedula}}</td>
+            <td>
+              {{$item->Nombre}}
+              {{$item->Apellido}}
+            </td>
             <td>{{$item->Titulo}}</td>
             <td>{{$item->estado}}</td>
             <td class="table-action">  
-              <a><i class="align-middle fas fa-edit" wire:click="Edit({{ $item->id }})" style="cursor: pointer"></i></a>
-              <a><i class="align-middle fas fa-fw fa-trash" wire:click="DestroyP({{ $item->id }})" style="cursor: pointer"></i></a>
+              <a style="position: relative; left: 15px;"><i class="align-middle fas fa-edit" wire:click="Edit({{ $item->id }})" style="cursor: pointer"></i></a>
+              <a style="position: relative; left: 20px;"><i class="align-middle fas fa-fw fa-trash" wire:click="DestroyP({{ $item->id }})" style="cursor: pointer"></i></a>
             </td>
           </tr>
         @endforeach
