@@ -23,16 +23,19 @@
                       <div class="col-span-6 sm:col-span-6">
                         <label for="nombre_" class="block text-sm font-medium text-gray-700">Nombre del Local</label>
                         <input type="text" name="nombre_" wire:model="_NombreLocal" id="nombre_" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        @error('_NombreLocal') <span class="error">{{ $message }}</span> @enderror
                       </div>
         
                       <div class="col-span-6 sm:col-span-6">
                         <label for="nombre_" class="block text-sm font-medium text-gray-700">Télefono</label>
                         <input type="text" name="nombre_" wire:model="_Telefono" id="nombr_" autocomplete="tel" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        @error('_Telefono') <span class="error">{{ $message }}</span> @enderror
                       </div>
 
                       <div class="col-span-6 sm:col-span-6">
                         <label for="fecha_" class="block text-sm font-medium text-gray-700">Año de Creación</label>
                         <input type="date" name="fecha_" wire:model="_Apertura" id="fecha_" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        @error('_Apertura') <span class="error">{{ $message }}</span> @enderror
                       </div>
 
                       <label>Dueño</label>
@@ -43,6 +46,13 @@
                           @endforeach                
                       </select>
                     </div>
+                  </div>
+                  <div>
+                    @if (session()->has('message'))
+                        <div class="alert alert-success" style="width: 250px;border: rgb(72, 136, 53) solid 2px;left: 300px; background: rgb(68, 255, 0)">
+                            {{ session('message') }}
+                        </div>
+                    @endif
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Registrar Local</button>
@@ -68,6 +78,13 @@
                           @endforeach                
                       </select>
                     </div>
+                  </div>
+                  <div>
+                    @if (session()->has('message2'))
+                        <div class="alert alert-success" style="width: 250px;border: rgb(72, 136, 53) solid 2px;left: 300px; background: rgb(68, 255, 0)">
+                            {{ session('message2') }}
+                        </div>
+                    @endif
                   </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Registrar Sucursal</button>

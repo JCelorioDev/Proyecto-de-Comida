@@ -30,7 +30,28 @@ class DatosLocal extends Component
         return view('livewire.datos-local',compact('p','d','l','s','su'));
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    protected $rules = [
+        '_NombreLocal' => 'required|min:3',
+        '_Telefono' => 'required|min:10|Max:10',
+        '_Apertura' => 'required',
+    ];
+
+    protected $messages = [
+        '_NombreLocal.required' => 'El Campo es Requerido.',
+        '_NombreLocal.min' => 'El Campo es de 3 Caracteres Minimo.',
+        '_Telefono.required' => 'El Campo es Requerido.',
+        '_Telefono.min' => 'El Campo es de 10 Digitos Minimo.',
+        '_Telefono.max' => 'El Campo es de 10 Caracteres Máximo.',
+        '_Apertura.required' => 'El Campo es Requerido.',
+    ];
+
     public function Save(){
+            $this->validate();
             Local ::create([
                 'Nombre' => $this->_NombreLocal,
                 'Telefono' => $this->_Telefono,
@@ -38,6 +59,7 @@ class DatosLocal extends Component
                 'id_persona' => $this->_id_persona,
             ]);
             $this->reset();
+            session()->flash('message', 'Guardado Correctamente.');
     }
 
     public function Save2(){
@@ -46,5 +68,6 @@ class DatosLocal extends Component
                 'id_local' => $this->_id_sucursal,
             ]);
             $this->reset();
+            session()->flash('message2', 'Guardado Correctamente.');
     }
 }
