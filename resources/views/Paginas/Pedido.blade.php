@@ -26,7 +26,7 @@
     <body>
             <x-slot name="header">
                 <h2 style="position: relative; left: 20px;" class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ __('CEO: José Arroyo Paredes.') }}
+                    {{ __('CEO: Jahir Celorio Malavé.') }}
                 </h2>
             </x-slot>
             <header class="header d-flex flex-row" style="position: relative; left: 670px; top: 0; width: 100%">
@@ -38,7 +38,7 @@
                         
                         <div class="logo">
                             <img src="#" alt="">
-                            <span>Rincón del Manaba</span>
+                            <span>Sistema de Restaurante</span>
                         </div>
                     </div>
                     <!-- Main Navigation -->
@@ -47,9 +47,9 @@
                                 <ul class="main_nav_list">
                                     <li class="main_nav_item"><a href="{{url('Inicio')}}">Inicio</a></li>
                                     <li class="main_nav_item"><a target="_blank" href="{{url('DatosDueño')}}">Usuario</a></li>
-                                    <li class="main_nav_item"><a href="{{url('DatosLocal')}}">Local</a></li>
-                                    <li class="main_nav_item"><a href="{{url('Menu')}}">Menu</a></li>
-                                    <li class="main_nav_item"><a href="{{url('Pedido')}}">Pedido</a></li>
+                                    <li class="main_nav_item"><a target="_blank" href="{{url('DatosLocal')}}">Local</a></li>
+                                    <li class="main_nav_item"><a target="_blank" href="{{url('Menu')}}">Menu</a></li>
+                                    <li class="main_nav_item"><a target="_blank" href="{{url('Pedido')}}">Pedido</a></li>
                                 </ul>
                         </div>
                     </nav>
@@ -110,7 +110,7 @@
                             <!-- Logo -->
                             <div class="logo_container">
                                 <div class="logo">
-                                    <span>Rincón del Manaba</span>
+                                    <span>Sistema de Ventas de Restaurante</span>
                                 </div>
                             </div>
     

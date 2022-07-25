@@ -590,7 +590,7 @@
 						<!-- Logo -->
 						<div class="logo_container">
 							<div class="logo">
-								<span>Rincón del Manaba</span>
+								<span>Sistema de Ventas de Restaurante</span>
 							</div>
 						</div>
 
@@ -604,7 +604,11 @@
 						<div class="footer_column_title">Menu</div>
 						<div class="footer_column_content">
 							<ul>
-								<li class="footer_list_item"><a href="#">Realizar Pedido</a></li>
+								<li class="main_nav_item"><a href="{{url('Inicio')}}">Inicio</a></li>
+								<li class="main_nav_item"><a target="_blank" href="{{url('DatosDueño')}}">Usuario</a></li>
+								<li class="main_nav_item"><a target="_blank" href="{{url('DatosLocal')}}">Local</a></li>
+								<li class="main_nav_item"><a target="_blank" href="{{url('Menu')}}">Menu</a></li>
+								<li class="main_nav_item"><a target="_blank" href="{{url('Pedido')}}">Pedido</a></li>
 							</ul>
 						</div>
 					</div>
