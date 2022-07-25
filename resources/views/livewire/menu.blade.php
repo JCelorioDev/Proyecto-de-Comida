@@ -23,16 +23,19 @@
                       <div class="col-span-6 sm:col-span-6">
                         <label for="titulo_" class="block text-sm font-medium text-gray-700">Titulo de Comida</label>
                         <input type="text" name="titulo_" wire:model="_Titulo" id="titulo_" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        @error('_Titulo') <span class="error">{{ $message }}</span> @enderror
                       </div>
         
                       <div class="col-span-6 sm:col-span-6">
                         <label for="descripcion_" class="block text-sm font-medium text-gray-700">Descripción</label>
                         <input type="text" name="descripcion_" wire:model="_Descripcion" id="descripcion_" autocomplete="tel" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        @error('_Descripcion') <span class="error">{{ $message }}</span> @enderror
                       </div>
 
                       <div class="col-span-6 sm:col-span-6">
                         <label for="precio_" class="block text-sm font-medium text-gray-700">Precio de Plato</label>
                         <input type="number" name="fecha_" wire:model="_Valor" id="precio_" autocomplete="family-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        @error('_Valor') <span class="error">{{ $message }}</span> @enderror
                       </div>
                       <div>
                         <label>Plato del Día</label>
@@ -54,6 +57,13 @@
                       </div>
                     </div>
                   </div>
+                  <div>
+                    @if (session()->has('message'))
+                    <div class="alert alert-success" style="width: 250px;border: rgb(72, 136, 53) solid 2px;left: 300px; background: rgb(68, 255, 0)">
+                        {{ session('message') }}
+                    </div>
+                    @endif
+                </div>
                   <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Registrar</button>
                   </div>

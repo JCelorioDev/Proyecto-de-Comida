@@ -18,6 +18,7 @@ class Menu extends Component
     }
 
     public function Save(){
+        $this->validate();
         MenuModel ::create([
             'Titulo' => $this->_Titulo,
             'Descripcion' => $this->_Descripcion,
@@ -26,5 +27,25 @@ class Menu extends Component
             'id_tipomenu' => $this->_id_tipomenu,
         ]);
         $this->reset();
+        session()->flash('message', 'Guardado Correctamente.');
     }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
+    protected $rules = [
+        '_Titulo' => 'required|min:3',
+        '_Descripcion' => 'required|min:5',
+        '_Valor' => 'required'
+    ];
+
+    protected $messages = [
+        '_Titulo.required' => 'El Campo es Requerido',
+        '_Titulo.min' => 'El Campo es de 3 Caracteres Minimo',
+        '_Descripcion.required' => 'El Campo es Requerido',
+        '_Descripcion.min' => 'El Campo es de 5 Caracteres Minimo',
+        '_Valor.required' => 'El Campo es Requerido',
+    ];
 }
