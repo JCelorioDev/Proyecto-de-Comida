@@ -25,7 +25,7 @@ class Pedido extends Component
         ->join('menu','venta.id_menu','=','menu.id')
         ->join('estadocuenta','venta.id_estadocuenta','=','estadocuenta.id')
         ->select('persona.Cedula','persona.Nombre','persona.Apellido','venta.Fecha','venta.Descripcion','venta.Total','venta.id','menu.Titulo','estadocuenta.estado')
-        ->get();
+        ->where( 'venta.Estado',1)->get();
         //$v = Venta::where('Estado',1)->get();
         return view('livewire.pedido',compact('p','m','ec','v'));
     }
