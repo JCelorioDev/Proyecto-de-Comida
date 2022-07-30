@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('Titulo');
             $table->text('Descripcion');
             $table->decimal('Valor');
+            $table->boolean('Estado');
         });
     }
 

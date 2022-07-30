@@ -9,5 +9,5 @@ class MenuModel extends Model
 {
     protected $table= 'menu';
     public $timestamps =false;
-    public $fillable = ['Titulo','Descripcion','Valor','id_local','id_tipomenu'];
+    public $fillable = ['Titulo','Descripcion','Valor','Estado','id_local','id_tipomenu'];
 }

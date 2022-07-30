@@ -19,7 +19,7 @@ class Menu extends Component
         ->join('local','menu.id_local','=','local.id')
         ->join('tipomenu','menu.id_tipomenu','=','tipomenu.id')
         ->select('local.Nombre','tipomenu.Menu','menu.Titulo','menu.Descripcion','menu.Valor','menu.id')
-        ->get();
+        ->where('menu.Estado',1)->get();
 
         return view('livewire.menu',compact('m','l','frm'));
     }
@@ -30,6 +30,7 @@ class Menu extends Component
             'Titulo' => $this->_Titulo,
             'Descripcion' => $this->_Descripcion,
             'Valor' => $this->_Valor,
+            'Estado' => 1,
             'id_local' => $this->_id_local,
             'id_tipomenu' => $this->_id_tipomenu,
         ]);
@@ -59,6 +60,7 @@ class Menu extends Component
             'Titulo' => $this->_Titulo,
             'Descripcion' => $this->_Descripcion,
             'Valor' => $this->_Valor,
+            'Estado' => 1,
             'id_local' => $this->_id_local,
             'id_tipomenu' => $this->_id_tipomenu,
         ]);
