@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class Pedido extends Component
 {
-    public $_id,$venta;
+    public $_id,$venta,$incremento=0;
     public $Fecha_,$Descripcion_,$Total_,$_id_persona,$_id_menu,$_id_estadocuenta,$InsertOrUpdate=true;
 
     public function render()
@@ -26,6 +26,13 @@ class Pedido extends Component
         ->join('estadocuenta','venta.id_estadocuenta','=','estadocuenta.id')
         ->select('persona.Cedula','persona.Nombre','persona.Apellido','venta.Fecha','venta.Descripcion','venta.Total','venta.id','menu.Titulo','estadocuenta.estado')
         ->where( 'venta.Estado',1)->get();
+        $ecv = DB::table('venta')
+        ->join('estadocuenta','venta.id_estadocuenta','estadocuenta.id')
+        ->select('estadocuenta.estado','estadocuenta.id')
+        ->get();
+        foreach ($ecv as $item) {
+            $this->Prueba();
+        }
         //$v = Venta::where('Estado',1)->get();
         return view('livewire.pedido',compact('p','m','ec','v'));
     }
@@ -41,6 +48,9 @@ class Pedido extends Component
         'Total_' => 'required',
     ];
 
+    public function Prueba(){
+        $this->incremento +=1; 
+    }
     protected $messages = [
         'Fecha_.required' => 'El Campo es Requerido',
         'Descripcion_.required' => 'El Campo es Requerido',

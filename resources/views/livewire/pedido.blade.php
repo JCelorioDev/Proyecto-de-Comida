@@ -176,5 +176,7 @@
         @endforeach
           </tbody>
         </table>
+        <br> <br>
+        <span style="color: red">Total de Platos Vendidos: </span><span>{{$incremento}}</span>
       </div>
 </div>
