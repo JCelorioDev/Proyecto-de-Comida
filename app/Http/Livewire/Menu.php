@@ -11,6 +11,7 @@ class Menu extends Component
 {
     public $_id;
     public $_Titulo,$_Descripcion,$_Valor,$_id_local,$_id_tipomenu,$InsertOrUpdate=true;
+    protected $paginationTheme = 'bootstrap';
     public function render()
     {
         $m = TipoMenu::all();
@@ -19,7 +20,7 @@ class Menu extends Component
         ->join('local','menu.id_local','=','local.id')
         ->join('tipomenu','menu.id_tipomenu','=','tipomenu.id')
         ->select('local.Nombre','tipomenu.Menu','menu.Titulo','menu.Descripcion','menu.Valor','menu.id')
-        ->where('menu.Estado',1)->get();
+        ->where('menu.Estado',1)->paginate(3);;
 
         return view('livewire.menu',compact('m','l','frm'));
     }

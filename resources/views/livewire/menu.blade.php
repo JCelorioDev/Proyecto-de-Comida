@@ -28,7 +28,7 @@
                       </div>
         
                       <div class="col-span-6 sm:col-span-6">
-                        <label for="descripcion_" class="block text-sm font-medium text-gray-700">Descripción</label>
+                        <label for="descripcion_" class="block text-sm font-medium text-gray-700">Ingredientes</label>
                         <input type="text" name="descripcion_" wire:model="_Descripcion" id="descripcion_" autocomplete="tel" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         @error('_Descripcion') <span class="error">{{ $message }}</span> @enderror
                       </div>
@@ -83,7 +83,7 @@
                       </div>
         
                       <div class="col-span-6 sm:col-span-6">
-                        <label for="descripcion_" class="block text-sm font-medium text-gray-700">Descripción</label>
+                        <label for="descripcion_" class="block text-sm font-medium text-gray-700">Ingredientes</label>
                         <input type="text" name="descripcion_" wire:model="_Descripcion" id="descripcion_" autocomplete="tel" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                         @error('_Descripcion') <span class="error">{{ $message }}</span> @enderror
                       </div>
@@ -131,32 +131,35 @@
           </div>
         </div>
 
-        <table class="table-info table-hover" style="width: 1000px; position: relative; left: 50px;">
-          <thead>
-            <tr style="color: rgb(255, 100, 146);">
-              <th scope="col" style="width: 300px">Titulo de la Comida</th>
-              <th style="width: 300px">Descripción</th>
-              <th style="width: 300px">Precio Plato</th>
-              <th style="width: 200px">Plato del Dia</th>
-              <th style="width: 300px">Restaurante</th>
-              <th style="width: 300px">Acciones</th>
+        <div>
+          <table class="table-info table-hover" style="width: 1000px; position: relative; left: 50px;">
+            <thead>
+              <tr style="color: rgb(255, 100, 146);">
+                <th scope="col" style="width: 300px">Titulo de la Comida</th>
+                <th style="width: 300px">Descripción</th>
+                <th style="width: 300px">Precio Plato</th>
+                <th style="width: 200px">Plato del Dia</th>
+                <th style="width: 300px">Restaurante</th>
+                <th style="width: 300px">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+          @foreach ($frm as $item)
+            <tr>
+              <th scope="row">{{$item->Titulo}}</th>
+              <td>{{$item->Descripcion}}</td>
+              <td>{{$item->Valor}}</td>
+              <td>{{$item->Menu}}</td>
+              <td>{{$item->Nombre}}</td>
+              <td class="table-action">  
+                <a style="position: relative; left: 15px;"><i class="align-middle fas fa-edit" wire:click="Edit({{ $item->id }})" style="cursor: pointer"></i></a>
+                <a style="position: relative; left: 20px;"><i class="align-middle fas fa-fw fa-trash" wire:click="DestroyP({{ $item->id }})" style="cursor: pointer"></i></a>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-        @foreach ($frm as $item)
-          <tr>
-            <th scope="row">{{$item->Titulo}}</th>
-            <td>{{$item->Descripcion}}</td>
-            <td>{{$item->Valor}}</td>
-            <td>{{$item->Menu}}</td>
-            <td>{{$item->Nombre}}</td>
-            <td class="table-action">  
-              <a style="position: relative; left: 15px;"><i class="align-middle fas fa-edit" wire:click="Edit({{ $item->id }})" style="cursor: pointer"></i></a>
-              <a style="position: relative; left: 20px;"><i class="align-middle fas fa-fw fa-trash" wire:click="DestroyP({{ $item->id }})" style="cursor: pointer"></i></a>
-            </td>
-          </tr>
-        @endforeach
-          </tbody>
-        </table>
+          @endforeach
+            </tbody>
+          </table>
+          <span style="position: relative; left: -1115px; top: 30px;">{{ $frm->links() }}</span>
+        </div>
       </div>
 </div>

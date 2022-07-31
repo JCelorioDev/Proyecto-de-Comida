@@ -8,10 +8,11 @@ use App\Models\MenuModel;
 use App\Models\EstadoVenta;
 use App\Models\Venta;
 use Illuminate\Support\Facades\DB;
-
+use Livewire\WithPagination;
 class Pedido extends Component
 {
     public $_id,$venta,$incremento=0;
+    protected $paginationTheme = 'bootstrap';
     public $Fecha_,$Descripcion_,$Total_,$_id_persona,$_id_menu,$_id_estadocuenta,$InsertOrUpdate=true;
 
     public function render()
@@ -24,8 +25,8 @@ class Pedido extends Component
         ->join('persona','venta.id_persona','=','persona.id')
         ->join('menu','venta.id_menu','=','menu.id')
         ->join('estadocuenta','venta.id_estadocuenta','=','estadocuenta.id')
-        ->select('persona.Cedula','persona.Nombre','persona.Apellido','venta.Fecha','venta.Descripcion','venta.Total','venta.id','menu.Titulo','estadocuenta.estado')
-        ->where( 'venta.Estado',1)->get();
+        ->select('persona.Cedula','persona.Nombre','persona.Apellido','venta.Fecha','venta.Descripcion','venta.Total','venta.id','menu.Titulo','menu.Valor','estadocuenta.estado')
+        ->where( 'venta.Estado',1)->paginate(3);
         $ecv = DB::table('venta')
         ->join('estadocuenta','venta.id_estadocuenta','estadocuenta.id')
         ->select('estadocuenta.estado','estadocuenta.id')

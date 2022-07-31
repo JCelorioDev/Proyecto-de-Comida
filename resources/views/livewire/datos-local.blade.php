@@ -151,14 +151,14 @@
           <thead>
             <tr style="color: rgb(98, 0, 255)">
               <th scope="col">Extensiones</th>
-              <th scope="col">ID Local</th>
+              <th scope="col">Local</th>
             </tr>
           </thead>
           <tbody>
         @foreach ($su as $item)
             <tr>
-              <th scope="row">{{$item->Nombre}}</th>
-              <td>{{$item->id_local}}</td>
+              <th scope="row">{{$item->sucunom}}</th>
+              <td>{{$item->localnom}}</td>
            </tr>
         @endforeach
           </tbody>

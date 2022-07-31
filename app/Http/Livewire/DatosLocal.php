@@ -20,7 +20,10 @@ class DatosLocal extends Component
         ->get();
 
         $s = Local::all();
-        $su = Sucursal::all();
+        $su = DB::table('sucursal')
+        ->join('local','sucursal.id_local','=','local.id')
+        ->select('sucursal.Nombre as sucunom','local.Nombre as localnom')
+        ->get();;
         $d = Persona::where('id_tipopersona',1)->get();
         $l = DB::table('local')
         ->join('persona','local.id_persona','=','persona.id')

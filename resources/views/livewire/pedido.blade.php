@@ -52,7 +52,7 @@
                         <select class="form-control select3" data-bs-toggle="select3" wire:model="_id_menu"  style="cursor: pointer; width: 330px ">
                             <option>Selecciona</option> 
                             @foreach ($m as $item)
-                            <option value="{{$item->id}}" style="width: 200px">{{$item->Titulo}}</option>
+                            <option value="{{$item->id}}" style="width: 200px">{{$item->Titulo}} --> ${{$item->Valor}}</option>
                             @endforeach                
                         </select>
                       </div>
@@ -116,7 +116,7 @@
                         <select class="form-control select3" data-bs-toggle="select3" wire:model="_id_menu"  style="cursor: pointer; width: 330px ">
                             <option>Selecciona</option> 
                             @foreach ($m as $item)
-                            <option value="{{$item->id}}" style="width: 200px">{{$item->Titulo}}</option>
+                            <option value="{{$item->id}}" style="width: 200px">{{$item->Titulo}} --> ${{$item->Valor}}</option>
                             @endforeach                
                         </select>
                       </div>
@@ -141,41 +141,45 @@
             </div>
           </div>
         </div>
-
-        <table class="table-secondary table-hover" style="width: 1000px; position: relative; left: 50px;">
-          <thead>
-            <tr style="color: blue;">
-              <th scope="col" style="width: 90px"># Pedido</th>
-              <th style="width: 140px">Fecha</th>
-              <th style="width: 300px">Descripción</th>
-              <th style="width: 90px">Total</th>
-              <th style="width: 300px">Cliente</th>
-              <th style="width: 300px">Menu</th>
-              <th style="width: 90px">Estado</th>
-              <th style="width: 90px">Acciones</th>
+        <div>
+          <table class="table-secondary table-hover" style="width: 1200px; position: relative; left: -25px;">
+            <thead>
+              <tr style="color: blue;">
+                <th scope="col" style="width: 90px"># Pedido</th>
+                <th style="width: 140px">Fecha</th>
+                <th style="width: 300px">Descripción</th>
+                <th style="width: 90px">Subtotal</th>
+                <th style="width: 90px">Total</th>
+                <th style="width: 300px">Cliente</th>
+                <th style="width: 350px">Menu</th>
+                <th style="width: 90px">Estado</th>
+                <th style="width: 90px">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+          @foreach ($v as $item)
+            <tr>
+              <th scope="row">{{$item->id}}</th>
+              <td>{{$item->Fecha}}</td>
+              <td>{{$item->Descripcion}}</td>
+              <td>${{$item->Valor}}</td>
+              <td>${{$item->Total+$item->Valor}}</td>
+              <td>
+                {{$item->Nombre}}
+                {{$item->Apellido}}
+              </td>
+              <td>{{$item->Titulo}}</td>
+              <td>{{$item->estado}}</td>
+              <td class="table-action">  
+                <a style="position: relative; left: 15px;"><i class="align-middle fas fa-edit" wire:click="Edit({{ $item->id }})" style="cursor: pointer"></i></a>
+                <a style="position: relative; left: 20px;"><i class="align-middle fas fa-fw fa-trash" wire:click="DestroyP({{ $item->id }})" style="cursor: pointer"></i></a>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-        @foreach ($v as $item)
-          <tr>
-            <th scope="row">{{$item->id}}</th>
-            <td>{{$item->Fecha}}</td>
-            <td>{{$item->Descripcion}}</td>
-            <td>{{$item->Total}}</td>
-            <td>
-              {{$item->Nombre}}
-              {{$item->Apellido}}
-            </td>
-            <td>{{$item->Titulo}}</td>
-            <td>{{$item->estado}}</td>
-            <td class="table-action">  
-              <a style="position: relative; left: 15px;"><i class="align-middle fas fa-edit" wire:click="Edit({{ $item->id }})" style="cursor: pointer"></i></a>
-              <a style="position: relative; left: 20px;"><i class="align-middle fas fa-fw fa-trash" wire:click="DestroyP({{ $item->id }})" style="cursor: pointer"></i></a>
-            </td>
-          </tr>
-        @endforeach
-          </tbody>
-        </table>
+          @endforeach
+            </tbody>
+          </table>
+          <span style="position: relative; left: -1185px; top: 30px">{{ $v->links() }}</span>
+        </div>
         <br> <br>
         <span style="color: red">Total de Platos Vendidos: </span><span>{{$incremento}}</span>
       </div>

@@ -38,7 +38,7 @@
                         
                         <div class="logo">
                             <img src="#" alt="">
-                            <span>Rincón del Manaba</span>
+                            <span>Sistema de Restaurante</span>
                         </div>
                     </div>
                     <!-- Main Navigation -->
