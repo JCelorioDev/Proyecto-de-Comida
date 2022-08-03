@@ -11,31 +11,19 @@ use Illuminate\Support\Facades\DB;
 use Livewire\WithPagination;
 class Pedido extends Component
 {
-    public $_id,$venta,$incremento=0;
+    public $_id,$venta,$incremento=0,$Valor;
     protected $paginationTheme = 'bootstrap';
-    public $Fecha_,$Descripcion_,$Total_,$_id_persona,$_id_menu,$_id_estadocuenta,$InsertOrUpdate=true;
+    public $Fecha_,$Descripcion_,$Total_=0,$_id_persona,$_id_menu,$_id_estadocuenta,$InsertOrUpdate=true;
 
     public function render()
     {
         $p = Persona::where('id_tipopersona',2)->get();
         $m = MenuModel::all();
         $d = Persona::where('id_tipopersona',1)->get();
-        $ec = EstadoVenta::all();
-        $v = DB::table('venta')
-        ->join('persona','venta.id_persona','=','persona.id')
-        ->join('menu','venta.id_menu','=','menu.id')
-        ->join('estadocuenta','venta.id_estadocuenta','=','estadocuenta.id')
-        ->select('persona.Cedula','persona.Nombre','persona.Apellido','venta.Fecha','venta.Descripcion','venta.Total','venta.id','menu.Titulo','menu.Valor','estadocuenta.estado')
-        ->where( 'venta.Estado',1)->paginate(3);
-        $ecv = DB::table('venta')
-        ->join('estadocuenta','venta.id_estadocuenta','estadocuenta.id')
-        ->select('estadocuenta.estado','estadocuenta.id')
-        ->get();
-        foreach ($ecv as $item) {
-            $this->Prueba();
-        }
+        $ec = EstadoVenta::where('Estado',1)->get();
+
         //$v = Venta::where('Estado',1)->get();
-        return view('livewire.pedido',compact('p','m','ec','v'));
+        return view('livewire.pedido',compact('p','m','ec'));
     }
 
     public function updated($propertyName)
@@ -46,7 +34,6 @@ class Pedido extends Component
     protected $rules = [
         'Fecha_' => 'required',
         'Descripcion_' => 'required|min:5',
-        'Total_' => 'required',
     ];
 
     public function Prueba(){
@@ -56,7 +43,6 @@ class Pedido extends Component
         'Fecha_.required' => 'El Campo es Requerido',
         'Descripcion_.required' => 'El Campo es Requerido',
         'Descripcion_.min' => 'El Campo es de 5 Caracteres Minimo',
-        'Total_.required' => 'El Campo es Requerido',
     ];
 
     public function Save(){
@@ -68,46 +54,9 @@ class Pedido extends Component
             'Estado' => 1,
             'id_persona' => $this->_id_persona,
             'id_menu' => $this->_id_menu,
-            'id_estadocuenta' => $this->_id_estadocuenta,
+            'id_estadocuenta' => 1,
         ]);
         $this->reset();
         session()->flash('message', 'Guardado Correctamente.');
-    }
-
-    public function Edit($id){
-        $v= Venta::find($id);
-        $this->_id = $id;
-        $this->Fecha_=$v->Fecha;
-        $this->Descripcion_=$v->Descripcion;
-        $this->Total_=$v->Total;
-        $this->_id_persona=$v->id_persona;
-        $this->_id_menu=$v->id_menu;
-        $this->_id_estadocuenta=$v->id_estadocuenta;
-        $this->InsertOrUpdate = false;
-    }
-
-    public function Update(){
-        $this->validate();
-        $venta =Venta::find( $this->_id);
-        $venta->update([
-            'Fecha' => $this->Fecha_,
-            'Descripcion' => $this->Descripcion_,
-            'Total' => $this->Total_,
-            'Estado' => 1,
-            'id_persona' => $this->_id_persona,
-            'id_menu' => $this->_id_menu,
-            'id_estadocuenta' => $this->_id_estadocuenta,
-        ]);
-        $this->reset();
-        session()->flash('message', 'Actualizado Correctamente.');
-    }
-
-    public function DestroyP($id){
-        
-        $venta = Venta::find($id);
-        $venta->update([
-            'Estado' => 0
-        ]);
-        $this->reset();
     }
 }

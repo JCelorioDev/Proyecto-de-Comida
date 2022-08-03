@@ -50,6 +50,7 @@
 							<li class="main_nav_item"><a target="_blank" href="{{url('DatosLocal')}}">Local</a></li>
 							<li class="main_nav_item"><a target="_blank" href="{{url('Menu')}}">Menu</a></li>
 							<li class="main_nav_item"><a target="_blank" href="{{url('Pedido')}}">Pedido</a></li>
+							<li class="main_nav_item"><a target="_blank" href="{{url('Venta')}}">Venta</a></li>
 						</ul>
 				</div>
 			</nav>

@@ -32,5 +32,6 @@ Route:: get('Registro',[Controller:: class, 'Register']);
 Route:: get('DatosDueño',[Menu:: class, 'ShowDataOfOwner']);
 Route:: get('DatosLocal',[Menu:: class, 'ShowDataOfLocal']);
 Route:: get('Menu',[Menu:: class, 'ShowDataOfMenu']);
+Route:: get('Venta',[Menu:: class, 'ShowDataOfVenta']);
 Route:: get('Pedido',[Menu:: class, 'ShowDataOfOrder']);
 Route:: get('Inicio',[Menu:: class, 'Principal']);

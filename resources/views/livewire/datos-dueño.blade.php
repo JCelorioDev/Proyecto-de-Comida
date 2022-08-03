@@ -1,5 +1,5 @@
 <div style="position: relative; left: 80px;">
-    <div style="position: relative; left: 30px;">
+       <div style="position: relative; left: 30px;"> 
         <div class="hidden sm:block" aria-hidden="true">
           <div class="py-5">
             <div class="border-t border-gray-200"></div>
@@ -77,4 +77,63 @@
           </div>
         </div>
       </div>
+
+      
+      <div style="width: 270px">
+        <label>Nombre del Local</label>
+        <input type="text" name="_LocalInput" placeholder="Ingresa el Dato para la Búsqueda" wire:model="_LocalInput" id="_CedulaInput" autocomplete="username" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+      </div>
+
+      @if ($_LocalInput)
+      <table class="table" style="width: 800px; position: relative; left: 160px; top: 15px">
+        <thead>
+          <tr>
+            <th scope="col">Local</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Año Creación</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            @foreach ($p as $item)
+              <th scope="row">{{$item->lonom}}</th>
+              <td>{{$item->lotel}}</td>
+              <td>{{$item->AñoCreacion}}</td>
+              <td>
+                <div style="background: rgb(21, 255, 0); width: 116px; height: 25px;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  <span style="color: white;font-family: 'Staatliches', cursive;">Mostrar Dueño</span>
+                </div>
+              </td>
+            @endforeach
+          </tr>
+        </tbody>
+      </table>          
+      @endif
+
+
+      <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Datos del Dueño</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        @foreach ($p as $item)
+            <span style="color: red;font-weight: 900">Nombre:</span> {{$item->Nombre}} <br>
+            <span style="color: red;font-weight: 900">Apellido:</span> {{$item->Apellido}} <br>
+            <span style="color: red;font-weight: 900">Cedula:</span> {{$item->Cedula}} <br>
+            <span style="color: red;font-weight: 900">Télefono:</span> {{$item->Telefono}} <br>
+            <span style="color: red;font-weight: 900">Dirección:</span> {{$item->Direccion}} <br>
+        @endforeach
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>

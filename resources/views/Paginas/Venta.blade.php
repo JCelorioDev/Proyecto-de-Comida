@@ -20,7 +20,6 @@
         <link rel="stylesheet" type="text/css" href="{{asset('plugins/OwlCarousel2-2.2.1/animate.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/main_styles.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('styles/responsive.css')}}">
-        <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     </head>
@@ -32,7 +31,7 @@
             </x-slot>
         @include('Secciones.header')
         <main>
-            @livewire('menu')
+            @livewire('ventas')
         </main>
         <br> <br>
         @include('Secciones.footer')

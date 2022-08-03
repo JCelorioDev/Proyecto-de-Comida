@@ -24,4 +24,8 @@ class Menu extends Controller
     public function ShowDataOfMenu(){
         return view('Paginas.Menu');
     }
+
+    public function ShowDataOfVenta(){
+        return view('Paginas.Venta');
+    }
 }

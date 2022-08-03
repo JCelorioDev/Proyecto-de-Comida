@@ -5,15 +5,21 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\TipoPersona;
 use App\Models\Persona;
+use Illuminate\Support\Facades\DB;
 
 class DatosDueño extends Component
 {
     public $_Cedula,$_Nombre,$_Apellido,$_Telefono,$_Direccion,$_id_tipopersona;
-
+    //public $_CedulaInput;
+    public $_LocalInput;
     public function render()
     {
         $t = TipoPersona::all();
-        $p = Persona::where('id_tipopersona',1)->get();
+        //$p = Persona::where('Cedula',$this->_CedulaInput)->get();
+        $p = DB::table('local')
+        ->join('persona','local.id_persona','=','persona.id')
+        ->select('persona.*','local.Nombre as lonom','local.Telefono as lotel','local.AñoCreacion')
+        ->where('local.Nombre',$this->_LocalInput)->get();
         return view('livewire.datos-dueño',compact('t','p'));
     }
 
